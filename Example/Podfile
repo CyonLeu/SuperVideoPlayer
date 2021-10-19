@@ -10,4 +10,7 @@ target 'SuperVideoPlayer_Example' do
 
     
   end
+  
+  pod 'SDWebImage', '4.4.2'
+
 end

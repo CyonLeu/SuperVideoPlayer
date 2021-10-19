@@ -1,16 +1,25 @@
 PODS:
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - SuperVideoPlayer (0.1.0)
 
 DEPENDENCIES:
+  - SDWebImage (= 4.4.2)
   - SuperVideoPlayer (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SDWebImage
 
 EXTERNAL SOURCES:
   SuperVideoPlayer:
     :path: "../"
 
 SPEC CHECKSUMS:
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SuperVideoPlayer: a47adf36b2400835c4155db2c80627ae828848a8
 
-PODFILE CHECKSUM: 901581de487c88b0b777af1b85306bdca90acc75
+PODFILE CHECKSUM: 4a76e9a677e2532c9215b03d53659c018fcfa4d6
 
 COCOAPODS: 1.11.2

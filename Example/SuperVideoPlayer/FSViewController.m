@@ -11,6 +11,8 @@
 
 #import "FSHomeCollectionViewCell.h"
 
+#import "FSHomeItemModel.h"
+
 @interface FSViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) UICollectionView *collectionView;
@@ -25,10 +27,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.title = @"最新视频";
     
     [self setupData];
     
     [self setupView];
+    
+    [self queryData];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -52,23 +57,52 @@
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     CGFloat itemSpace = 5;
-    CGFloat itemWidth = CGRectGetWidth([UIScreen mainScreen].bounds) - itemSpace;
-    layout.itemSize = CGSizeMake(itemWidth, itemWidth * 9/16.0);
+    CGFloat itemWidth = floor((CGRectGetWidth([UIScreen mainScreen].bounds) - itemSpace) / 2);
+    layout.itemSize = CGSizeMake(itemWidth, itemWidth * 9/16.0 + 35);
+    layout.minimumLineSpacing = itemSpace * 2;
+    layout.minimumInteritemSpacing = itemSpace;
+    
     
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.collectionView.backgroundColor = [UIColor lightGrayColor];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:kFSHomeCollectionViewCell bundle:nil] forCellWithReuseIdentifier:kFSHomeCollectionViewCell];
     
-    
+    [self.view addSubview:self.collectionView];
 }
 
 #pragma mark - QueryData
 
-
-
-
+- (void)queryData {
+//    NSURL *url = [NSURL URLWithString:@"https://www.bilibili.com/index/ding.json"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"homeList" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    if (!data) {
+        //读取失败
+        return;
+    }
+    
+    NSError *error = nil;
+    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingFragmentsAllowed error:&error];
+    if (error) {
+        NSLog(@"解析失败：%@", error.localizedDescription);
+        return;
+    }
+    
+    NSMutableArray *resultArray = [@[] mutableCopy];
+    for (NSString *key in jsonDict.keyEnumerator) {
+        NSDictionary *itemDict = jsonDict[key];
+        NSLog(@"itemDict:%@", itemDict);
+        FSHomeItemModel *model = [[FSHomeItemModel alloc] initWithDictionary:itemDict];
+        [resultArray addObject:model];
+    }
+    
+    [self.items addObjectsFromArray:resultArray];
+    [self.items addObjectsFromArray:resultArray];//增加数据列表
+    
+    [self.collectionView reloadData];
+}
 
 
 
@@ -93,10 +127,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"indexPath:%@", indexPath);
     id model = self.items[indexPath.item];
-    NSLog(@"model:%@", model);
+        
+    FSDetailViewController *detailVC = [[FSDetailViewController alloc] init];
+    detailVC.model = model;
     
-    
-    
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 

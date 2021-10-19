@@ -10,7 +10,9 @@
 		02AB0059E1695A2693707511 /* Pods_SuperVideoPlayer_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B296D52275E6ADC0B2A4536C /* Pods_SuperVideoPlayer_Example.framework */; };
 		03FC6251271EA86200512585 /* FSDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FC6250271EA86200512585 /* FSDetailViewController.m */; };
 		03FC6256271EADD600512585 /* FSHomeCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FC6254271EADD600512585 /* FSHomeCollectionViewCell.m */; };
-		03FC6257271EADD600512585 /* FSCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FC6255271EADD600512585 /* FSCollectionViewCell.xib */; };
+		03FC6257271EADD600512585 /* FSHomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FC6255271EADD600512585 /* FSHomeCollectionViewCell.xib */; };
+		03FC625B271EB92400512585 /* FSHomeItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FC625A271EB92400512585 /* FSHomeItemModel.m */; };
+		03FC625D271EBD0700512585 /* homeList.json in Resources */ = {isa = PBXBuildFile; fileRef = 03FC625C271EBD0700512585 /* homeList.json */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -44,7 +46,10 @@
 		03FC6250271EA86200512585 /* FSDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSDetailViewController.m; sourceTree = "<group>"; };
 		03FC6253271EADD600512585 /* FSHomeCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSHomeCollectionViewCell.h; sourceTree = "<group>"; };
 		03FC6254271EADD600512585 /* FSHomeCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSHomeCollectionViewCell.m; sourceTree = "<group>"; };
-		03FC6255271EADD600512585 /* FSCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSCollectionViewCell.xib; sourceTree = "<group>"; };
+		03FC6255271EADD600512585 /* FSHomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSHomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		03FC6259271EB92400512585 /* FSHomeItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSHomeItemModel.h; sourceTree = "<group>"; };
+		03FC625A271EB92400512585 /* FSHomeItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FSHomeItemModel.m; sourceTree = "<group>"; };
+		03FC625C271EBD0700512585 /* homeList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeList.json; sourceTree = "<group>"; };
 		5D9D7DC722C65B9703BD078C /* Pods-SuperVideoPlayer_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperVideoPlayer_Example.debug.xcconfig"; path = "Target Support Files/Pods-SuperVideoPlayer_Example/Pods-SuperVideoPlayer_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SuperVideoPlayer_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperVideoPlayer_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -108,9 +113,19 @@
 			children = (
 				03FC6253271EADD600512585 /* FSHomeCollectionViewCell.h */,
 				03FC6254271EADD600512585 /* FSHomeCollectionViewCell.m */,
-				03FC6255271EADD600512585 /* FSCollectionViewCell.xib */,
+				03FC6255271EADD600512585 /* FSHomeCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		03FC6258271EB24C00512585 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03FC625C271EBD0700512585 /* homeList.json */,
+				03FC6259271EB92400512585 /* FSHomeItemModel.h */,
+				03FC625A271EB92400512585 /* FSHomeItemModel.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3B403ACFBC5B8B4FEA6EF1AB /* Pods */ = {
@@ -161,6 +176,7 @@
 		6003F593195388D20070C39A /* Example for SuperVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				03FC6258271EB24C00512585 /* Models */,
 				03FC6252271EADC500512585 /* Views */,
 				6003F59C195388D20070C39A /* FSAppDelegate.h */,
 				6003F59D195388D20070C39A /* FSAppDelegate.m */,
@@ -301,9 +317,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03FC625D271EBD0700512585 /* homeList.json in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
-				03FC6257271EADD600512585 /* FSCollectionViewCell.xib in Resources */,
+				03FC6257271EADD600512585 /* FSHomeCollectionViewCell.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -349,10 +366,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SuperVideoPlayer_Example/Pods-SuperVideoPlayer_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SuperVideoPlayer/SuperVideoPlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SuperVideoPlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +412,7 @@
 				6003F5A7195388D20070C39A /* FSViewController.m in Sources */,
 				03FC6251271EA86200512585 /* FSDetailViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				03FC625B271EB92400512585 /* FSHomeItemModel.m in Sources */,
 				03FC6256271EADD600512585 /* FSHomeCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

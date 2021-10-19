@@ -11,10 +11,13 @@
  视频详情播放页
  使用SuperVideoPlayer来播放视频
  */
+#import "FSHomeItemModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FSDetailViewController : UIViewController
+
+@property (strong, nonatomic) FSHomeItemModel *model;
 
 @end
 
