@@ -1,0 +1,6 @@
+framework module SuperVideoPlayer {
+  umbrella header "SuperVideoPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

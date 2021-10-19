@@ -1,0 +1,16 @@
+PODS:
+  - SuperVideoPlayer (0.1.0)
+
+DEPENDENCIES:
+  - SuperVideoPlayer (from `../`)
+
+EXTERNAL SOURCES:
+  SuperVideoPlayer:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SuperVideoPlayer: a47adf36b2400835c4155db2c80627ae828848a8
+
+PODFILE CHECKSUM: 901581de487c88b0b777af1b85306bdca90acc75
+
+COCOAPODS: 1.11.2
