@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "FSVideoPlayerView.h"
 
 FOUNDATION_EXPORT double SuperVideoPlayerVersionNumber;
 FOUNDATION_EXPORT const unsigned char SuperVideoPlayerVersionString[];

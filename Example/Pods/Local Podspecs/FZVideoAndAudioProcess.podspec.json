@@ -1,0 +1,22 @@
+{
+  "name": "FZVideoAndAudioProcess",
+  "version": "0.1",
+  "summary": "FZVideoAndAudioProcess",
+  "description": "* Finally, don't worry about the indent, CocoaPods strips it!",
+  "homepage": "git@114.215.169.104:/alidata/gitwork/FZVideoAndAudioProcess.git",
+  "license": "MIT",
+  "source": {
+    "git": "git@115.236.179.166:FZVideoAndAudioProcess.git",
+    "branch": "master"
+  },
+  "authors": {
+    "huyanming": "yanming.huym@qq.com"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": "**/*.{h,m,cpp,mm}",
+  "resources": "**/*.{jpg,json,plist,cer}",
+  "requires_arc": true,
+  "frameworks": "AVFoundation"
+}

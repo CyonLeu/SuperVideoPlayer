@@ -1,0 +1,50 @@
+{
+  "name": "FZMVideoAndAudioProcess",
+  "version": "0.1.28",
+  "summary": "A short description of FZMVideoAndAudioProcess.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "gogs@115.236.179.166:FeiZhu_IOS_Pub_Repo/FZMVideoAndAudioProcess",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "xpj": "15968896804@163.com"
+  },
+  "source": {
+    "git": "gogs@git.qupeiyin.net:FeiZhu_IOS_Pub_Repo/FZMVideoAndAudioProcess.git",
+    "tag": "0.1.28"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "FZMVideoAndAudioProcess/Classes/**/*",
+  "vendored_libraries": "FZMVideoAndAudioProcess/Assets/libSoundTouch.a",
+  "frameworks": [
+    "AVFoundation",
+    "MobileCoreServices"
+  ],
+  "dependencies": {
+    "FZMCommonCategory": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "FZMDiskCacheManager": [
+
+    ],
+    "FZMLoginUser": [
+
+    ],
+    "Qiniu": [
+
+    ],
+    "FZMAudioComposeUtils": [
+
+    ],
+    "FZMCommonView": [
+
+    ]
+  }
+}
